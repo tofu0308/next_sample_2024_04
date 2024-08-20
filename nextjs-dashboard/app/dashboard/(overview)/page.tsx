@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import CardWrapper from '@/app/ui/dashboard/cards';
 
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
@@ -6,6 +7,10 @@ import { lusitana } from '@/app/ui/fonts';
 import { fetchCardData } from '@/app/lib/data';
 import { Suspense } from 'react';
 import { RevenueChartSkeleton, LatestInvoicesSkeleton, CardsSkeleton } from '@/app/ui/skeletons';
+
+export const metadata: Metadata = {
+  title: 'Dashboard',
+};
 
 export default async function Page() {
   const { numberOfInvoices, numberOfCustomers, totalPaidInvoices, totalPendingInvoices } = await fetchCardData();
